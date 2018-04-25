@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Movie = require('../models/Movie')
+var Movie = require('../models/Movie.js')
 
 /* GET home page. */
 router.get('/add', function(req, res, next) {
@@ -23,7 +23,8 @@ router.post('/add', function(req, res, next) {
   	//res.send({'success':true});
   	console.log(req.body.content);
   	console.log(req.body)
-	var json = req.body.content;
+	var json = JSON.parse(req.body).content;
+	console.log('这是json' + json)
 	if(json._id){//update
 	
 	} else {//insert
